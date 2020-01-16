@@ -1,0 +1,30 @@
+<div style="padding: 16px;">
+    <div>
+        <form #form="ngForm">
+            <div>
+                <h3>{{ schema.title }}</h3>
+            </div>
+            <div *ngFor="let prop of properties" class="form-container">
+                <label>{{ schema.properties[prop].title }}</label>
+                <input type="text" *ngIf="schema.properties[prop].type === 'string'" 
+                    [name]="prop" ngModel [minLength]="schema.properties[prop].minLength" 
+                    [required]="schema.required.indexOf(prop) > -1 ? 'true': 'false'" />
+                <input type="number" *ngIf="schema.properties[prop].type === 'integer'" 
+                    [name]="prop" ngModel [required]="schema.required.indexOf(prop) > -1 ? 'true': 'false'" />
+                <input type="password" *ngIf="schema.properties[prop].type === 'password'" 
+                    [name]="prop" ngModel [minLength]="schema.properties[prop].minLength" 
+                    [required]="schema.required.indexOf(prop) > -1 ? 'true': 'false'" />
+                <input type="checkbox" *ngIf="schema.properties[prop].type === 'boolean'"
+                    [name]="prop" ngModel [required]="schema.required.indexOf(prop) > -1 ? 'true': 'false'" />
+            </div>            
+            <div class="form-container">
+                <button (click)="$event.stopPropagation();submit(form)">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div>        
+        <div>
+            {{ output }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+div {
+    font-family: sans-serif;
+}
+
+.form-container {
+    display: block;
+    padding: 8px;
+}
+
+.form-container label,
+.form-container div {
+    display: block;
+}
+
+button {
+    height: 40px;
+    width: 100px;
+    background-color: rgb(78, 164, 240);
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+button:hover {
+    background-color: rgb(23, 116, 197);;
+}
